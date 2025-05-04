@@ -1,0 +1,174 @@
+1. Design and develop custom Application (Online Shopping ) using Salesforce Cloud :
+  Product
+  Attributes:
+  ProductID (Auto Number or Text): Unique identifier for the product.
+  Name (Text): Name of the product.
+  Description (Long Text Area): Detailed description of the product.
+  Price (Currency): Price of the product.
+  StockQuantity (Number): Number of items available in stock.
+  Category (Picklist): Category of the product (e.g., Electronics, Clothing).
+  ImageURL (URL): Link to the product image.
+  IsActive (Checkbox): Indicates if the product is available for sale.
+  Customer
+  Attributes:
+  CustomerID (Auto Number or Text): Unique identifier for the customer.
+  FirstName (Text): Customer's first name.
+  LastName (Text): Customer's last name.
+  Email (Email): Customer's email address.
+  Phone (Phone): Customer's phone number.
+  ShippingAddress (Text Area): Customer's shipping address.
+  BillingAddress (Text Area): Customer's billing address.
+  AccountCreatedDate (Date/Time): Date when the account was created.
+  Order
+  Attributes:
+  OrderID (Auto Number or Text): Unique identifier for the order.
+  OrderDate (Date/Time): Date when the order was placed.
+  TotalAmount (Currency): Total amount for the order.
+  Status (Picklist): Status of the order (e.g., Pending, Shipped, Delivered, Cancelled).
+  CustomerID (Lookup to Customer): Reference to the customer who placed the order.
+  ShippingAddress (Text Area): Shipping address for the order.
+  BillingAddress (Text Area): Billing address for the order.
+  OrderItem
+  Attributes:
+  OrderItemID (Auto Number or Text): Unique identifier for the order item.
+  OrderID (Lookup to Order): Reference to the order.
+  ProductID (Lookup to Product): Reference to the product being ordered.
+  Quantity (Number): Quantity of the product ordered.
+  UnitPrice (Currency): Price per unit of the product at the time of order.
+  TotalPrice (Currency): Total price for this order item (Quantity * UnitPrice).
+  ShoppingCart
+  Attributes:
+  CartID (Auto Number or Text): Unique identifier for the shopping cart.
+  CustomerID (Lookup to Customer): Reference to the customer who owns the cart.
+  CreatedDate (Date/Time): Date when the cart was created.
+  LastUpdated (Date/Time): Date when the cart was last updated.
+  CartItem
+  Attributes:
+  CartItemID (Auto Number or Text): Unique identifier for the cart item.
+  CartID (Lookup to ShoppingCart): Reference to the shopping cart.
+  ProductID (Lookup to Product): Reference to the product added to the cart.
+  Quantity (Number): Quantity of the product in the cart.
+
+Order:
+CustomerID (Lookup to Customer)
+OrderItem:
+OrderID (Lookup to Order)
+ProductID (Lookup to Product)
+ShoppingCart:
+CustomerID (Lookup to Customer)
+CartItem:
+CartID (Lookup to ShoppingCart)
+ProductID (Lookup to Product)
+
+2. Design and develop custom Application (Accounts Management) using Salesforce Cloud.
+
+  Account
+  Attributes:
+  AccountID (Auto Number or Text): Unique identifier for the account.
+  AccountName (Text): Name of the account (company or individual).
+  AccountType (Picklist): Type of account (e.g., Customer, Partner, Supplier).
+  Industry (Picklist): Industry in which the account operates (e.g., Technology, Healthcare).
+  AnnualRevenue (Currency): Annual revenue of the account.
+  Phone (Phone): Contact phone number for the account.
+  Website (URL): Website URL of the account.
+  Address (Text Area): Physical address of the account.
+  CreatedDate (Date/Time): Date when the account was created.
+  LastModifiedDate (Date/Time): Date when the account was last modified.
+  Contact
+  Attributes:
+  ContactID (Auto Number or Text): Unique identifier for the contact.
+  FirstName (Text): First name of the contact.
+  LastName (Text): Last name of the contact.
+  Email (Email): Email address of the contact.
+  Phone (Phone): Phone number of the contact.
+  AccountID (Lookup to Account): Reference to the associated account.
+  Title (Text): Job title of the contact.
+  CreatedDate (Date/Time): Date when the contact was created.
+  Opportunity
+  Attributes:
+  OpportunityID (Auto Number or Text): Unique identifier for the opportunity.
+  OpportunityName (Text): Name of the opportunity.
+  AccountID (Lookup to Account): Reference to the associated account.
+  Stage (Picklist): Current stage of the opportunity (e.g., Prospecting, Negotiation, Closed Won).
+  CloseDate (Date): Expected close date for the opportunity.
+  Amount (Currency): Potential revenue from the opportunity.
+  CreatedDate (Date/Time): Date when the opportunity was created.
+  Activity
+  Attributes:
+  ActivityID (Auto Number or Text): Unique identifier for the activity.
+  Subject (Text): Subject of the activity.
+  Description (Long Text Area): Detailed description of the activity.
+  DueDate (Date): Due date for the activity.
+  Status (Picklist): Status of the activity (e.g., Not Started, In Progress, Completed).
+  AccountID (Lookup to Account): Reference to the associated account.
+  ContactID (Lookup to Contact): Reference to the associated contact.
+  CreatedDate (Date/Time): Date when the activity was created.
+
+Account:
+ContactID (Lookup to Contact)
+OpportunityID (Lookup to Opportunity)
+ActivityID (Lookup to Activity)
+Contact:
+AccountID (Lookup to Account)
+ActivityID (Lookup to Activity)
+Opportunity:
+AccountID (Lookup to Account)
+Activity:
+AccountID (Lookup to Account)
+ContactID (Lookup to Contact)
+
+3. Design and develop custom Application (Contact Management) using Salesforce Cloud
+
+  Contact
+  Attributes:
+  ContactID (Auto Number or Text): Unique identifier for the contact.
+  FirstName (Text): First name of the contact.
+  LastName (Text): Last name of the contact.
+  Email (Email): Email address of the contact.
+  Phone (Phone): Phone number of the contact.
+  AccountID (Lookup to Account): Reference to the associated account.
+  Title (Text): Job title of the contact.
+  Department (Text): Department of the contact.
+  CreatedDate (Date/Time): Date when the contact was created.
+  LastModifiedDate (Date/Time): Date when the contact was last modified.
+  Account
+  Attributes:
+  AccountID (Auto Number or Text): Unique identifier for the account.
+  AccountName (Text): Name of the account (company or individual).
+  AccountType (Picklist): Type of account (e.g., Customer, Partner, Supplier).
+  Industry (Picklist): Industry in which the account operates (e.g., Technology, Healthcare).
+  AnnualRevenue (Currency): Annual revenue of the account.
+  Phone (Phone): Contact phone number for the account.
+  Website (URL): Website URL of the account.
+  Address (Text Area): Physical address of the account.
+  CreatedDate (Date/Time): Date when the account was created.
+  LastModifiedDate (Date/Time): Date when the account was last modified.
+  Activity
+  Attributes:
+  ActivityID (Auto Number or Text): Unique identifier for the activity.
+  Subject (Text): Subject of the activity.
+  Description (Long Text Area): Detailed description of the activity.
+  DueDate (Date): Due date for the activity.
+  Status (Picklist): Status of the activity (e.g., Not Started, In Progress, Completed).
+  AccountID (Lookup to Account): Reference to the associated account.
+  ContactID (Lookup to Contact): Reference to the associated contact.
+  CreatedDate (Date/Time): Date when the activity was created.
+  Communication History
+  Attributes:
+  CommunicationID (Auto Number or Text): Unique identifier for the communication record.
+  ContactID (Lookup to Contact): Reference to the associated contact.
+  Date (Date/Time): Date of the communication.
+  Type (Picklist): Type of communication (e.g., Email, Phone Call, Meeting).
+  Summary (Long Text Area): Summary of the communication.
+  FollowUpDate (Date): Date for any follow-up actions.
+
+Contact:
+AccountID (Lookup to Account)
+ActivityID (Lookup to Activity)
+Account:
+ContactID (Lookup to Contact) (Note: This is implied through the relationship, as an account can have multiple contacts.)
+Activity:
+ContactID (Lookup to Contact)
+AccountID (Lookup to Account)
+Communication History:
+ContactID (Lookup to Contact)
