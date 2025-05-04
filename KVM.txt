@@ -1,0 +1,10 @@
+cat /proc/cpuinfo | grep -Ec '(vmx|svm)'
+sudo apt install -y qemu-kvm virt-manager libvirt-daemon-system virtinst libvirt-clients
+sudo systemctl enable libvirtd
+sudo systemctl start libvirtd
+sudo systemctl status libvirtd
+sudo usermod -aG kvm $USER
+sudo usermod -aG libvirt $USER
+
+
+sudo dmesg | grep kvm
